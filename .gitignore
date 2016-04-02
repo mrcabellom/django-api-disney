@@ -51,7 +51,6 @@ coverage.xml
 
 env/
 obj/
-static/
 *.pubxml
 *.pubxml.user
 web.config
