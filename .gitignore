@@ -54,7 +54,6 @@ obj/
 static/
 *.pubxml
 *.pubxml.user
-*.config
 
 
 # Sphinx documentation
