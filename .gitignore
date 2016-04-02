@@ -54,6 +54,8 @@ obj/
 static/
 *.pubxml
 *.pubxml.user
+web.config
+web.debug.config
 
 
 # Sphinx documentation

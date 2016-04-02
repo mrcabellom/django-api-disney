@@ -110,6 +110,7 @@
     <Content Include="app\templates\app\layout.html" />
     <Content Include="app\templates\app\login.html" />
     <Content Include="app\templates\app\loginpartial.html" />
+    <None Include="web.2.7.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.mht">
