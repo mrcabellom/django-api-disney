@@ -113,11 +113,6 @@
     <None Include="web.2.7.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="readme.mht">
-      <SubType>WebBrowser</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Interpreter Include="env\">
       <Id>{c2d5e194-cea2-45f6-a48a-3178e6be7267}</Id>
       <BaseInterpreter>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</BaseInterpreter>

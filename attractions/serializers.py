@@ -25,6 +25,6 @@ class RootAttractionsSerialize(serializers.Serializer):
 
 class AggregateAttractionSerialize(serializers.Serializer):
     id = serializers.CharField()
-    attractionId = serializers.CharField(max_length = 200)
-    date = serializers.DateTimeField();
-    waitTime = serializers.FloatField();
+    attractionId = serializers.CharField(max_length = 300)
+    date = serializers.DateTimeField(input_formats=["%Y-%m-%d %H"])
+    waitTimeAvg = serializers.FloatField()

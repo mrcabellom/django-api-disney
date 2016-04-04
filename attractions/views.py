@@ -51,15 +51,18 @@ def get_attractions_aggregate(request):
           format: date-time
           in: query
           type: string
-        - name: attractionId
+        - name: attractions
           in: query
-          type: string
+          type: array           
     """        
-
+    attractionsParam = request.GET.get('attractions')
+    if ',' in attractionsParam:
+        myListAttractions = attractionsParam.split(',')
+    else:
+        myListAttractions = request.GET.getlist('attractions')
     start_date = parse_date(request.GET.get('startdate'))
     end_date = parse_date(request.GET.get('enddate'))
-    attraction_id = request.GET.get('attractionId')
-    docs = AttractionsDao.find_aggregate_attractions_between_date(attraction_id,start_date, end_date)
+    docs = AttractionsDao.find_aggregate_attractions_between_date(myListAttractions,start_date, end_date)
     serializer = AggregateAttractionSerialize(data = docs, many=True)
     if serializer.is_valid():
         return Response(serializer.validated_data, status=status.HTTP_200_OK)
