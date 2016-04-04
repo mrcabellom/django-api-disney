@@ -3,6 +3,7 @@ from documentdb_management.client_connection import ConnectionDDB
 import pdb
 import time
 from app.utils import date_to_string
+import urllib
 
 class AttractionsDao:
 
@@ -15,7 +16,7 @@ class AttractionsDao:
                     and c.date <= "{1}" 
                     and c.attractionId in ({2})'''.format(date_to_string(start_date),
                                                         date_to_string(end_date),
-                                                        ','.join(["'"+attraction+"'" for attraction in attractions]))
+                                                        ','.join(["'"+urllib.unquote(attraction)+"'" for attraction in attractions]))
             docs = DocumentManagement.find_document(client,'attractionswaittimeaggregation',query);
         return docs.fetch_items()
 
