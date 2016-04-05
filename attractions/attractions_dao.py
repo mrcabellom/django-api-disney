@@ -20,6 +20,22 @@ class AttractionsDao:
             docs = DocumentManagement.find_document(client,'attractionswaittimeaggregation',query);
         return docs.fetch_items()
 
+
+     @staticmethod
+     def find_attractions():
+
+        with ConnectionDDB() as client:
+            query = u'''select top 1 * from c ORDER BY c.createdAt DESC'''
+            docs = DocumentManagement.find_document(client,'attractionswaittime',query)
+            for doc in docs:
+                first_element = doc
+
+            query_attractions = u'''select * 
+                    from c where c.createdAt = "{0}"'''.format(first_element['createdAt'])
+            docs_attractions = DocumentManagement.find_document(client,'attractionswaittime',query_attractions);
+
+        return docs_attractions.fetch_items()
+
         
 
 

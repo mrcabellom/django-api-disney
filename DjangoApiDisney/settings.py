@@ -24,7 +24,7 @@ CACHES = {
         'LOCATION': 'demodisney.redis.cache.windows.net:6379',
          "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            'DB':1,
+            'DB':0,
             'PASSWORD':'Mpp1vp/3+a885ORt3ZYKAYaxZBTzpikDBpz3AEHHwr4='
         }
     }

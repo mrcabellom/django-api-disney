@@ -2,7 +2,7 @@ from django.contrib.auth.models import User, Group
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from attractions.serializers import RootAttractionsSerialize, AggregateAttractionSerialize
+from attractions.serializers import AttractionsSerializer, AggregateAttractionSerialize
 from django.core.cache import cache
 import pdb
 from datetime import datetime
@@ -25,9 +25,10 @@ def get_attractions(request):
              
     value = cache.get('attractions')
     if not value:
-          value = ClientDisney.get_attractions()      
+          value = AttractionsDao.find_attractions()
+          cache.set('attractions', value)      
     
-    serializer = RootAttractionsSerialize(data = value)
+    serializer = AttractionsSerializer(data = value, many=True)
 
     if serializer.is_valid():
         return Response(serializer.validated_data, status=status.HTTP_200_OK)

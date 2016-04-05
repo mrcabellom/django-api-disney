@@ -12,10 +12,11 @@ class WaitTimeSerializer(serializers.Serializer):
 
 
 class AttractionsSerializer(serializers.Serializer):
-    id = serializers.CharField(max_length=200)
+    attractionId = serializers.CharField(max_length=200)
     name = serializers.CharField(max_length=200, required = False)
     type = serializers.CharField(max_length=200)
     waitTime = WaitTimeSerializer()
+    createdAt = serializers.DateTimeField(input_formats=["%Y-%m-%d %H:%M:%S"])
 
 
 class RootAttractionsSerialize(serializers.Serializer):
